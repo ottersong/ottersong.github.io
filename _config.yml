@@ -328,3 +328,10 @@ defaults:
       comments: # true
       share: true
       related: true
+
+# Google Drive Image Prefix
+gdrive_url_prefix: "https://drive.google.com/uc?id="
+
+
+
+

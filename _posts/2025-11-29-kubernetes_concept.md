@@ -1,22 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/otter_song.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/otter_song.github.io/" rel="alternate" type="text/html" /><updated>2025-11-29T16:36:13+09:00</updated><id>http://localhost:4000/otter_song.github.io/feed.xml</id><title type="html">Otter Song’s Technology Blog</title><subtitle>Development Journal</subtitle><author><name>otter song</name></author><entry><title type="html"></title><link href="http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept/" rel="alternate" type="text/html" title="" /><published>2025-11-29T16:36:13+09:00</published><updated>2025-11-29T16:36:13+09:00</updated><id>http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept</id><content type="html" xml:base="http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept/"><![CDATA[<p><img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6" /></p>
+---
+layout: single
+title: "kubernetes"
+data: "2025-11-29 15:13:00 +0900"
+last_modified_at: ""2025-11-29 15:13:00 +0900"
+---
 
-<h2 id="kubernetes-기본-개념">Kubernetes 기본 개념</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>배포, 스케일링, 그리고 컨테이너화된 애플리케이션의 관리를 자동화 해주는 오픈 소스 컨테이너 오케스트레이션 엔진이다.
+
+<img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6">
+
+Kubernetes 기본 개념
+-
+```
+배포, 스케일링, 그리고 컨테이너화된 애플리케이션의 관리를 자동화 해주는 오픈 소스 컨테이너 오케스트레이션 엔진이다.
 // 오픈 소스로 Cloud Native Computing Foundation(CNCF)가 주관한다
-</code></pre></div></div>
-<p>Kubernetes인 이유
--</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
+```
+Kubernetes인 이유
+-
+```
+쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
 K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 약식 표기이다.
-</code></pre></div></div>
+```
 
-<h2 id="kubernetes가-왜-필요하고-무엇을-하는가">Kubernetes가 왜 필요하고 무엇을 하는가?</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>프로덕션 환경에서는 애플리케이션을 실행하는 컨테이너를 관리하고 가동 중지 시간이 없는지 확인해야 한다. 이 문제를 시스템이 직접 처리할 수 있다.
+Kubernetes가 왜 필요하고 무엇을 하는가?
+-
+```
+프로덕션 환경에서는 애플리케이션을 실행하는 컨테이너를 관리하고 가동 중지 시간이 없는지 확인해야 한다. 이 문제를 시스템이 직접 처리할 수 있다.
 분산 시스템을 탄력적으로 실행하기 위한 프레임워크를 제공한다. 애플리케이션의 확장과 장애 조치를 처리하고, 배포 패턴 등을 제공한다.
-</code></pre></div></div>
-<p>Kubernetes가 제공하는 것들
--</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>서비스 디스커버리와 로드 밸런싱
+```
+Kubernetes가 제공하는 것들
+-
+```
+서비스 디스커버리와 로드 밸런싱
 - DNS 이름을 사용하거나 자체 IP 주소를 사용하여 컨테이너를 노출할 수 있다.
 - 컨테이너에 트래픽이 많으면, 네트워크 로드밸런싱을 자동화하고 배포하여 배포가 안정적으로 이루어질 수 있다.
 
@@ -43,17 +57,20 @@ K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 �
 
 확장성을 고려한 설계
 - 업스트림 소스 코드를 변경하지 않고 쿠버네티스 클러스트 기능을 추가할 수 있다.
-</code></pre></div></div>
+```
 
-<h2 id="kubernetes에-대한-오해">Kubernetes에 대한 오해</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>쿠버네티스는 Platfor as a Service(PaaS)가 아니다. 하드웨어 수준보다는 컨테이너 수준에서 운영되기 때문에, PaaS가 일반적으로 제공하는 배포, 스케일링, 로드 밸런싱과 같은 기능을 제공하며, 사용자가 로깅, 모니터링 및 알림 솔루션을 통합할 수 있다. 또한 모놀로지 방식이 아니기 때문에 기본 솔루션이 선택적이며 추가나 제거가 용이하다.
+Kubernetes에 대한 오해
+-
+```
+쿠버네티스는 Platfor as a Service(PaaS)가 아니다. 하드웨어 수준보다는 컨테이너 수준에서 운영되기 때문에, PaaS가 일반적으로 제공하는 배포, 스케일링, 로드 밸런싱과 같은 기능을 제공하며, 사용자가 로깅, 모니터링 및 알림 솔루션을 통합할 수 있다. 또한 모놀로지 방식이 아니기 때문에 기본 솔루션이 선택적이며 추가나 제거가 용이하다.
 // 1. 모놀리식(monolithic)이란?  하나의 통합된 큰 덩어리를 의미
-</code></pre></div></div>
+```
 
-<hr />
-<p>Kubernetes 기본 개념 정리
--</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 지원하는 어플리케이션 유형을 제약하지 않는다.
+---
+Kubernetes 기본 개념 정리
+-
+```
+1. 지원하는 어플리케이션 유형을 제약하지 않는다.
 2. 소스 코드를 배포하지 않으며 애플리케이션을 빌드하지 않는다.
 3. 애플리케이션 레벨의 서비스를 제공하지 않는다.
 4. 로깅, 모니터링 또는 경보 솔루션을 포함하지 않는다.
@@ -62,13 +79,14 @@ K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 �
 7. 쿠버네티스는 오케스트레이션의 필요성을 없애준다
 
 // 1. 오케스트레이션이란? A를 먼저 한 다음, B를 하고, C를 하는 것과 같이 정의된 워크플로우를 수행하는 것이다.
-</code></pre></div></div>
+```
 
-<hr />
-<p>kubernetes 여정
+---
+kubernetes 여정
 -
-{ site.gdrive_url_prefix }}1lwFwD961vBgO86vqN9tQ2gojIUmjQNJq/view?usp=sharing</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>전통적인 배포 시대
+{ site.gdrive_url_prefix }}1lwFwD961vBgO86vqN9tQ2gojIUmjQNJq/view?usp=sharing
+```
+전통적인 배포 시대
 - 애플리케이션을 물리 서버에서 실행, 여러 애플리케이션을 실행하면 리소스 전부를 차지하는 애플리케이션 인스턴스가 있을 수 있고 이는 다른 애플리케이션의 성능 저하로 이러지는 문제가 있다. 해결책으로 서로 다른 물리 서버에서 각 애플리케이션을 실행하는 방법이 있지만, 이는 리소스 활용면에서 비효율적이며 비용이 많이 발생한다.
 
 가상화된 배포 시대
@@ -77,10 +95,12 @@ K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 �
 
 컨테이너 개발 시대
 - 컨테이너는 VM과 유사하지만 격리 속성을 완화하여 애플리케이션 간에 운영체제(OS)를 공유한다. 그러므로 컨테이너는 가볍다고 여겨진다.
-</code></pre></div></div>
+```
 
-<h2 id="컨테이너가-제공하는-혜택들">컨테이너가 제공하는 혜택들</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 기민한 애플리케이션 생성과 배포: VM 이미지를 사용하는 것에 비해 컨테이너 이미지 생성이 보다 쉽고 효율적이다.
+컨테이너가 제공하는 혜택들
+-
+```
+1. 기민한 애플리케이션 생성과 배포: VM 이미지를 사용하는 것에 비해 컨테이너 이미지 생성이 보다 쉽고 효율적이다.
 2. 지속적인 개발, 통합 및 배포: 안정적이고 주기적으로 컨테이너 이미지를 빌드해서 배포할 수 있고 (이미지의 불변성 덕에) 빠르고 효율적으로 롤백할 수 있다.
 3. 개발과 운영의 관심사 분리: 배포 시점이 아닌 빌드/릴리스 시점에 애플리케이션 컨테이너 이미지를 만들기 때문에, 애플리케이션이 인프라스트럭처에서 분리된다.
 4. 가시성(observability): OS 수준의 정보와 메트릭에 머무르지 않고, 애플리케이션의 헬스와 그 밖의 시그널을 볼 수 있다.
@@ -91,5 +111,5 @@ K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 �
     리소스 격리: 애플리케이션 성능을 예측할 수 있다.
     리소스 사용량: 고효율 고집적.
 
-</code></pre></div></div>
-<p><img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6" /></p>]]></content><author><name>otter song</name></author></entry></feed>
+```
+<img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6">
