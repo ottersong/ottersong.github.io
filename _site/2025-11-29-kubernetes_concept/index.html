@@ -1,0 +1,532 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Otter Song’s Technology Blog</title>
+<meta name="description" content="Development Journal">
+
+
+  <meta name="author" content="otter song">
+  
+  <meta property="article:author" content="otter song">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Otter Song’s Technology Blog">
+<meta property="og:title" content="Otter Song’s Technology Blog">
+<meta property="og:url" content="http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept/">
+
+
+  <meta property="og:description" content="Development Journal">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-11-29T16:36:13+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/otter_song.github.io/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/otter_song.github.io/"><img src="/otter_song.github.io/assets/images/goldfish.png" alt="Otter Song’s Technology Blog"></a>
+        
+        <a class="site-title" href="/otter_song.github.io/">
+          Otter Song’s Technology Blog
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/otter_song.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current"></li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/otter_song.github.io/">
+        <img src="/otter_song.github.io/assets/images/otter.jpg" alt="otter song" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/otter_song.github.io/" itemprop="url">otter song</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>goldfish’s boy</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="otter_sun9ho@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://youtube.com/channel/UCOiX53CBgXIGqt0-kzWNnfw?si=HzXtqQJH5hr1pdqI" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">Youtube</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/ottersong" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-11-29T16:36:13+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6" /></p>
+
+<h2 id="kubernetes-기본-개념">Kubernetes 기본 개념</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>배포, 스케일링, 그리고 컨테이너화된 애플리케이션의 관리를 자동화 해주는 오픈 소스 컨테이너 오케스트레이션 엔진이다.
+// 오픈 소스로 Cloud Native Computing Foundation(CNCF)가 주관한다
+</code></pre></div></div>
+<p>Kubernetes인 이유
+-</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
+K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 약식 표기이다.
+</code></pre></div></div>
+
+<h2 id="kubernetes가-왜-필요하고-무엇을-하는가">Kubernetes가 왜 필요하고 무엇을 하는가?</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>프로덕션 환경에서는 애플리케이션을 실행하는 컨테이너를 관리하고 가동 중지 시간이 없는지 확인해야 한다. 이 문제를 시스템이 직접 처리할 수 있다.
+분산 시스템을 탄력적으로 실행하기 위한 프레임워크를 제공한다. 애플리케이션의 확장과 장애 조치를 처리하고, 배포 패턴 등을 제공한다.
+</code></pre></div></div>
+<p>Kubernetes가 제공하는 것들
+-</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>서비스 디스커버리와 로드 밸런싱
+- DNS 이름을 사용하거나 자체 IP 주소를 사용하여 컨테이너를 노출할 수 있다.
+- 컨테이너에 트래픽이 많으면, 네트워크 로드밸런싱을 자동화하고 배포하여 배포가 안정적으로 이루어질 수 있다.
+
+스토리지 오케스트레이션
+- 로컬 저장소, 공용 클라우드 공급자 등과 같이 원하는 저장소 시스템을 자동으로 탑재할 수 있다.
+
+자동화된 롤아웃과 롤백
+- 현재 상태를 원하는 상태로 설정한 속도에 따라 변경할 수 있다. 쿠버네티스를 자동화해서 컨테이너 생성, 제거, 새로운 리소스 적용이 가능하다.
+
+자동화된 빈 패킹(bin packing)
+- 컨테이너화된 작업을 실행하는데 사용할 수 있는 쿠버네티스 클러스터 노드를 제공한다. 각 컨테이너가 필요로 하는 CPU와 메모리(RAM)를 쿠버네티스에게 지시한다.
+
+자동화된 복구(self-healing) 
+- 쿠버네티스는 실패한 컨테이너를 다시 시작하고, 컨테이너를 교체하며, '사용자 정의상태 검사'에 응답하지 않는 컨테이너를 죽이고, 서비스 준비가 끝날 때까지 그러한 과정을 클라이언트에 보여주지 않는다.
+
+시크릿과 구성 관리
+- 암호, OAuth 토큰 및 SSH 키와 같은 중요한 정보를 저장하고 관리할 수 있다. 컨테이너 이미지를 재구성하지 않고 스택 구성에 시크릿을 노출하지 않고도 시크릿 및 애플리케이션 구성을 배포 및 업데이트할 수 있다.
+
+배치 실행
+- 배치 및 CI 워크로드를 관리할 수 있으며, 필요한 경우 실패한 컨테이너를 교체할 수 있다.
+
+수평 확장
+- 간단한 명령어, UI, 또는 CPU 사용량에 따라 자동으로 애플리케이션으르 확장하거나 축소할 수 있다.
+
+확장성을 고려한 설계
+- 업스트림 소스 코드를 변경하지 않고 쿠버네티스 클러스트 기능을 추가할 수 있다.
+</code></pre></div></div>
+
+<h2 id="kubernetes에-대한-오해">Kubernetes에 대한 오해</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>쿠버네티스는 Platfor as a Service(PaaS)가 아니다. 하드웨어 수준보다는 컨테이너 수준에서 운영되기 때문에, PaaS가 일반적으로 제공하는 배포, 스케일링, 로드 밸런싱과 같은 기능을 제공하며, 사용자가 로깅, 모니터링 및 알림 솔루션을 통합할 수 있다. 또한 모놀로지 방식이 아니기 때문에 기본 솔루션이 선택적이며 추가나 제거가 용이하다.
+// 1. 모놀리식(monolithic)이란?  하나의 통합된 큰 덩어리를 의미
+</code></pre></div></div>
+
+<hr />
+<p>Kubernetes 기본 개념 정리
+-</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 지원하는 어플리케이션 유형을 제약하지 않는다.
+2. 소스 코드를 배포하지 않으며 애플리케이션을 빌드하지 않는다.
+3. 애플리케이션 레벨의 서비스를 제공하지 않는다.
+4. 로깅, 모니터링 또는 경보 솔루션을 포함하지 않는다.
+5. 기본 설정 언어/시스템을 제공하거나 요구하지 않는다. 선언적 명세의 임의적인 형식을 목적으로 하는 선언적 API를 제공한다.
+6. 포괄적인 머신 설정, 유지보수, 관리, 자동 복수 시스템을 제공하거나 채택하지 않는다.
+7. 쿠버네티스는 오케스트레이션의 필요성을 없애준다
+
+// 1. 오케스트레이션이란? A를 먼저 한 다음, B를 하고, C를 하는 것과 같이 정의된 워크플로우를 수행하는 것이다.
+</code></pre></div></div>
+
+<hr />
+<p>kubernetes 여정
+-
+{ site.gdrive_url_prefix }}1lwFwD961vBgO86vqN9tQ2gojIUmjQNJq/view?usp=sharing</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>전통적인 배포 시대
+- 애플리케이션을 물리 서버에서 실행, 여러 애플리케이션을 실행하면 리소스 전부를 차지하는 애플리케이션 인스턴스가 있을 수 있고 이는 다른 애플리케이션의 성능 저하로 이러지는 문제가 있다. 해결책으로 서로 다른 물리 서버에서 각 애플리케이션을 실행하는 방법이 있지만, 이는 리소스 활용면에서 비효율적이며 비용이 많이 발생한다.
+
+가상화된 배포 시대
+- 단일 물리 서버의 CPU에서 여러 가상 시스템(VM)을 실행할 수 있게 한다. 가상화를 사용하면 VM간의 애플리케이션을 격리하여 보안성을 높일 수 있다.
+또한 리소스를 보다 효율적으로 활용할 수 있으며 애플리케이션 추가나 업데이트가 자유롭고 더 나은 확장성을 제공한다. 
+
+컨테이너 개발 시대
+- 컨테이너는 VM과 유사하지만 격리 속성을 완화하여 애플리케이션 간에 운영체제(OS)를 공유한다. 그러므로 컨테이너는 가볍다고 여겨진다.
+</code></pre></div></div>
+
+<h2 id="컨테이너가-제공하는-혜택들">컨테이너가 제공하는 혜택들</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 기민한 애플리케이션 생성과 배포: VM 이미지를 사용하는 것에 비해 컨테이너 이미지 생성이 보다 쉽고 효율적이다.
+2. 지속적인 개발, 통합 및 배포: 안정적이고 주기적으로 컨테이너 이미지를 빌드해서 배포할 수 있고 (이미지의 불변성 덕에) 빠르고 효율적으로 롤백할 수 있다.
+3. 개발과 운영의 관심사 분리: 배포 시점이 아닌 빌드/릴리스 시점에 애플리케이션 컨테이너 이미지를 만들기 때문에, 애플리케이션이 인프라스트럭처에서 분리된다.
+4. 가시성(observability): OS 수준의 정보와 메트릭에 머무르지 않고, 애플리케이션의 헬스와 그 밖의 시그널을 볼 수 있다.
+5. 개발, 테스팅 및 운영 환경에 걸친 일관성: 랩탑에서도 클라우드에서와 동일하게 구동된다.
+6. 클라우드 및 OS 배포판 간 이식성: Ubuntu, RHEL, CoreOS, 온-프레미스, 주요 퍼블릭 클라우드와 어디에서든 구동된다.
+7. 애플리케이션 중심 관리: 가상 하드웨어 상에서 OS를 실행하는 수준에서 논리적인 리소스를 사용하는 OS 상에서 애플리케이션을 실행하는 수준으로 추상화 수준이 높아진다.
+8. 느슨하게 커플되고, 분산되고, 유연하며, 자유로운 마이크로서비스: 애플리케이션은 단일 목적의 머신에서 모놀리식 스택으로 구동되지 않고 보다 작고 독립적인 단위로 쪼개져서 동적으로 배포되고 관리될 수 있다.
+    리소스 격리: 애플리케이션 성능을 예측할 수 있다.
+    리소스 사용량: 고효율 고집적.
+
+</code></pre></div></div>
+<p><img src="https://drive.google.com/uc?id=1zDhAW2MoheQNEldenD0lIdlC4QFovxY6" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-29T16:36:13+09:00">November 29, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=%20http%3A%2F%2Flocalhost%3A4000%2Fotter_song.github.io%2F2025-11-29-kubernetes_concept%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fotter_song.github.io%2F2025-11-29-kubernetes_concept%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/otter_song.github.io/2025-11-29-kubernetes_concept/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=%20http%3A%2F%2Flocalhost%3A4000%2Fotter_song.github.io%2F2025-11-29-kubernetes_concept%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+  </div>
+</div>
+
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2013 - 2025 <a href="http://localhost:4000">Otter Song’s Technology Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/otter_song.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
