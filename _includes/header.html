@@ -1,0 +1,23 @@
+<!-- _includes/header.html -->
+
+<header class="site-header" role="banner">
+    <div class="inner">
+        <!-- 로고 -->
+        <h1 class="site-title">
+            <a href="{{ '/' | relative_url }}">
+                <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+            </a>
+        </h1>
+
+        <!-- 네비게이션 -->
+        <nav class="site-nav" role="navigation">
+            <ul class="nav">
+                {% for item in site.nav %}
+                <li class="nav-item">
+                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

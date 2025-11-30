@@ -24,9 +24,9 @@ name                     : "otter_song"
 description              : "Development Journal"
 url                      : "https://ottersong.github.io"
 baseurl                  : "/otter_song.github.io"
-repository               : "ottersong/otter_song.github.io"
-teaser                   : "/assets/images/goldfish.png"
-logo                     : "/assets/images/goldfish.png"
+repository               : "ottersong.github.io"
+teaser                   : "/assets/images/otter.jpg"
+logo                     : "/assets/images/otter.jpg"
 masthead_title           : ""
 breadcrumbs              : "true" # true, false (default)
 words_per_minute         : 200
@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "otter song"
-  avatar           : "/assets/images/otter.jpg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/goldfish_profile.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "goldfish's boy"
   location         : "Republic of Korea"
   email            :
@@ -329,9 +329,15 @@ defaults:
       share: true
       related: true
 
-# Google Drive Image Prefix
-gdrive_url_prefix: "https://drive.google.com/uc?id="
-
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "About"
+    url: "/about/"
+  - title: "Projects"
+    url: "/projects/"
 
 
 
