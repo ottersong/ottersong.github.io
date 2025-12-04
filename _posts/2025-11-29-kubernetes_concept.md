@@ -1,114 +1,89 @@
 ---
 layout: single
-title: "kubernetes"
+title: "Kubernetes"
 date: "2025-11-29 15:13:00 +0900"
 last_modified_at: "2025-11-29 15:13:00 +0900"
+categories: ["DevOps"]
 ---
 
+![k8s_logo](https://upload.wikimedia.org/wikipedia/commons/6/67/Kubernetes_logo.svg)
 
-![k8s_main](data:image/png;base64,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)
+---
 
-Kubernetes 기본 개념
--
+### 📌 Kubernetes란?
+
 ```
-배포, 스케일링, 그리고 컨테이너화된 애플리케이션의 관리를 자동화 해주는 오픈 소스 컨테이너 오케스트레이션 엔진이다.
-// 오픈 소스로 Cloud Native Computing Foundation(CNCF)가 주관한다
-```
-Kubernetes인 이유
--
-```
-쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
-K8s라는 표기는 "K"와 "s"와 그 사이에 있는 8글자를 나타내는 약식 표기이다.
+배포, 스케일링, 그리고 컨테이너화된 애플리케이션의 관리를 자동화하는 
+오픈 소스 컨테이너 오케스트레이션 엔진이다.
+// Cloud Native Computing Foundation(CNCF)이 주관한다.
 ```
 
-Kubernetes가 왜 필요하고 무엇을 하는가?
--
+### 📌 Kubernetes 이름의 유래
+
 ```
-프로덕션 환경에서는 애플리케이션을 실행하는 컨테이너를 관리하고 가동 중지 시간이 없는지 확인해야 한다. 이 문제를 시스템이 직접 처리할 수 있다.
-분산 시스템을 탄력적으로 실행하기 위한 프레임워크를 제공한다. 애플리케이션의 확장과 장애 조치를 처리하고, 배포 패턴 등을 제공한다.
-```
-Kubernetes가 제공하는 것들
--
-```
-서비스 디스커버리와 로드 밸런싱
-- DNS 이름을 사용하거나 자체 IP 주소를 사용하여 컨테이너를 노출할 수 있다.
-- 컨테이너에 트래픽이 많으면, 네트워크 로드밸런싱을 자동화하고 배포하여 배포가 안정적으로 이루어질 수 있다.
-
-스토리지 오케스트레이션
-- 로컬 저장소, 공용 클라우드 공급자 등과 같이 원하는 저장소 시스템을 자동으로 탑재할 수 있다.
-
-자동화된 롤아웃과 롤백
-- 현재 상태를 원하는 상태로 설정한 속도에 따라 변경할 수 있다. 쿠버네티스를 자동화해서 컨테이너 생성, 제거, 새로운 리소스 적용이 가능하다.
-
-자동화된 빈 패킹(bin packing)
-- 컨테이너화된 작업을 실행하는데 사용할 수 있는 쿠버네티스 클러스터 노드를 제공한다. 각 컨테이너가 필요로 하는 CPU와 메모리(RAM)를 쿠버네티스에게 지시한다.
-
-자동화된 복구(self-healing) 
-- 쿠버네티스는 실패한 컨테이너를 다시 시작하고, 컨테이너를 교체하며, '사용자 정의상태 검사'에 응답하지 않는 컨테이너를 죽이고, 서비스 준비가 끝날 때까지 그러한 과정을 클라이언트에 보여주지 않는다.
-
-시크릿과 구성 관리
-- 암호, OAuth 토큰 및 SSH 키와 같은 중요한 정보를 저장하고 관리할 수 있다. 컨테이너 이미지를 재구성하지 않고 스택 구성에 시크릿을 노출하지 않고도 시크릿 및 애플리케이션 구성을 배포 및 업데이트할 수 있다.
-
-배치 실행
-- 배치 및 CI 워크로드를 관리할 수 있으며, 필요한 경우 실패한 컨테이너를 교체할 수 있다.
-
-수평 확장
-- 간단한 명령어, UI, 또는 CPU 사용량에 따라 자동으로 애플리케이션으르 확장하거나 축소할 수 있다.
-
-확장성을 고려한 설계
-- 업스트림 소스 코드를 변경하지 않고 쿠버네티스 클러스트 기능을 추가할 수 있다.
+쿠버네티스는 '키잡이(helmsman), 파일럿'을 뜻하는 그리스어에서 유래했다.
+K8s는 "K"와 "s" 사이의 8글자를 줄여 표기한 것이다.
 ```
 
-Kubernetes에 대한 오해
--
+### 📌 Kubernetes가 필요한 이유
+
 ```
-쿠버네티스는 Platfor as a Service(PaaS)가 아니다. 하드웨어 수준보다는 컨테이너 수준에서 운영되기 때문에, PaaS가 일반적으로 제공하는 배포, 스케일링, 로드 밸런싱과 같은 기능을 제공하며, 사용자가 로깅, 모니터링 및 알림 솔루션을 통합할 수 있다. 또한 모놀로지 방식이 아니기 때문에 기본 솔루션이 선택적이며 추가나 제거가 용이하다.
-// 1. 모놀리식(monolithic)이란?  하나의 통합된 큰 덩어리를 의미
+프로덕션 환경에서는 컨테이너를 안정적으로 관리하고 
+중단 없이 애플리케이션을 실행해야 한다.
+쿠버네티스는 분산 시스템 운영을 위한 자동화된 프레임워크를 제공한다.
 ```
 
 ---
-Kubernetes 기본 개념 정리
--
-```
-1. 지원하는 어플리케이션 유형을 제약하지 않는다.
-2. 소스 코드를 배포하지 않으며 애플리케이션을 빌드하지 않는다.
-3. 애플리케이션 레벨의 서비스를 제공하지 않는다.
-4. 로깅, 모니터링 또는 경보 솔루션을 포함하지 않는다.
-5. 기본 설정 언어/시스템을 제공하거나 요구하지 않는다. 선언적 명세의 임의적인 형식을 목적으로 하는 선언적 API를 제공한다.
-6. 포괄적인 머신 설정, 유지보수, 관리, 자동 복수 시스템을 제공하거나 채택하지 않는다.
-7. 쿠버네티스는 오케스트레이션의 필요성을 없애준다
 
-// 1. 오케스트레이션이란? A를 먼저 한 다음, B를 하고, C를 하는 것과 같이 정의된 워크플로우를 수행하는 것이다.
+### 🚀 Kubernetes가 제공하는 기능
+
+```
+1) 서비스 디스커버리 & 로드 밸런싱  
+2) 스토리지 오케스트레이션  
+3) 자동화된 롤아웃 & 롤백  
+4) 자동 빈 패킹 (bin packing)  
+5) 자동 복구 (Self-Healing)  
+6) 시크릿 & 설정 관리  
+7) 배치/CI 작업 실행  
+8) 수평 확장 (CPU/명령 기반 자동 스케일링)  
+9) 확장성을 고려한 설계 (플러그인/확장 쉬움)
 ```
 
 ---
-kubernetes 여정
--
-![deployment_depth](https://kubernetes.io/images/docs/Container_Evolution.svg)
-```
-전통적인 배포 시대
-- 애플리케이션을 물리 서버에서 실행, 여러 애플리케이션을 실행하면 리소스 전부를 차지하는 애플리케이션 인스턴스가 있을 수 있고 이는 다른 애플리케이션의 성능 저하로 이러지는 문제가 있다. 해결책으로 서로 다른 물리 서버에서 각 애플리케이션을 실행하는 방법이 있지만, 이는 리소스 활용면에서 비효율적이며 비용이 많이 발생한다.
 
-가상화된 배포 시대
-- 단일 물리 서버의 CPU에서 여러 가상 시스템(VM)을 실행할 수 있게 한다. 가상화를 사용하면 VM간의 애플리케이션을 격리하여 보안성을 높일 수 있다.
-또한 리소스를 보다 효율적으로 활용할 수 있으며 애플리케이션 추가나 업데이트가 자유롭고 더 나은 확장성을 제공한다. 
-
-컨테이너 개발 시대
-- 컨테이너는 VM과 유사하지만 격리 속성을 완화하여 애플리케이션 간에 운영체제(OS)를 공유한다. 그러므로 컨테이너는 가볍다고 여겨진다.
-```
-
-컨테이너가 제공하는 혜택들
--
-```
-1. 기민한 애플리케이션 생성과 배포: VM 이미지를 사용하는 것에 비해 컨테이너 이미지 생성이 보다 쉽고 효율적이다.
-2. 지속적인 개발, 통합 및 배포: 안정적이고 주기적으로 컨테이너 이미지를 빌드해서 배포할 수 있고 (이미지의 불변성 덕에) 빠르고 효율적으로 롤백할 수 있다.
-3. 개발과 운영의 관심사 분리: 배포 시점이 아닌 빌드/릴리스 시점에 애플리케이션 컨테이너 이미지를 만들기 때문에, 애플리케이션이 인프라스트럭처에서 분리된다.
-4. 가시성(observability): OS 수준의 정보와 메트릭에 머무르지 않고, 애플리케이션의 헬스와 그 밖의 시그널을 볼 수 있다.
-5. 개발, 테스팅 및 운영 환경에 걸친 일관성: 랩탑에서도 클라우드에서와 동일하게 구동된다.
-6. 클라우드 및 OS 배포판 간 이식성: Ubuntu, RHEL, CoreOS, 온-프레미스, 주요 퍼블릭 클라우드와 어디에서든 구동된다.
-7. 애플리케이션 중심 관리: 가상 하드웨어 상에서 OS를 실행하는 수준에서 논리적인 리소스를 사용하는 OS 상에서 애플리케이션을 실행하는 수준으로 추상화 수준이 높아진다.
-8. 느슨하게 커플되고, 분산되고, 유연하며, 자유로운 마이크로서비스: 애플리케이션은 단일 목적의 머신에서 모놀리식 스택으로 구동되지 않고 보다 작고 독립적인 단위로 쪼개져서 동적으로 배포되고 관리될 수 있다.
-    리소스 격리: 애플리케이션 성능을 예측할 수 있다.
-    리소스 사용량: 고효율 고집적.
+### 🧩 Kubernetes에 대한 오해
 
 ```
+쿠버네티스는 PaaS가 아니지만,
+PaaS에서 제공하는 배포, 스케일링, 로드밸런싱 기능은 제공한다.
+모놀리식이 아닌 선택적 구성 방식이며, 
+사용자가 로깅/모니터링을 직접 통합해야 한다.
+
+// 1. 모놀리식(monolithic): 하나로 된 큰 구조
+```
+
+---
+
+### 📝 Kubernetes 요약 정리
+
+```
+1. 특정 언어/프레임워크에 종속되지 않는다.
+2. 소스 코드 배포/빌드를 하지 않는다.
+3. 애플리케이션 레벨 서비스(예: 이메일, DB)를 제공하지 않는다.
+4. 로깅/모니터링/알림을 내장하지 않는다.
+5. 선언적 API 기반이다 (YAML 등 사용).
+6. 머신 설정/유지보수 자동화 도구가 아니다.
+7. 오케스트레이션을 필요 없게 하는 플랫폼이다.
+
+// 오케스트레이션 = 정해진 순서로 자동 작업 실행
+```
+
+---
+
+### 📌 Kubernetes 진화 과정
+
+```
+전통적인 배포 → 가상화 → 컨테이너 → Kubernetes 시대
+```
+
+---
